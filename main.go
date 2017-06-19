@@ -11,5 +11,6 @@ func main() {
 	beego.BConfig.WebConfig.DirectoryIndex = true
 	beego.SetStaticPath("/js", "static/js")
 	beego.SetStaticPath("/css", "static/css")
+	beego.SetLevel(beego.LevelDebug)
 	beego.Run()
 }

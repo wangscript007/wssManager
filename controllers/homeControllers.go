@@ -1,7 +1,10 @@
 package controllers
 
 import (
+	"io/ioutil"
 	"log"
+	"net/http"
+	"net/url"
 
 	"github.com/astaxie/beego"
 )
@@ -26,9 +29,33 @@ func (this *HomeController) Post() {
 		log.Println("login to service")
 		usrName := this.GetString("usrName")
 		passWord := this.GetString("pwd")
-		log.Println(usrName)
-		log.Println(passWord)
+		addr := this.GetString("addr")
+		this.login(addr, usrName, passWord)
 	} else {
 		log.Println("find session")
 	}
+}
+
+func (this *HomeController) login(addr, usrName, pwd string) (err error) {
+	reqAddr := "http://" + addr + "/admin/login"
+
+	data := make(url.Values)
+
+	data["username"] = []string{usrName}
+	data["password"] = []string{pwd}
+	resp, err := http.PostForm(reqAddr, data)
+	if err != nil {
+		beego.Debug(err.Error())
+		return
+	}
+
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		beego.Debug(err.Error())
+		return
+	}
+	beego.Debug(pwd)
+	beego.Debug(string(body))
+	return
 }
