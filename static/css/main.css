@@ -52,6 +52,26 @@ input {
     color: gray;
 }
 
+.usrInfo {
+    display: inline;
+}
+
+.usrInfo1 {
+    text-align: left;
+    display: inline;
+}
+
+.usrInfo2 {
+    display: inline;
+}
+
+.usrInfoH2 {
+    color: black;
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+}
+
 #manage {
     text-align: center;
     margin: 20;
@@ -79,11 +99,12 @@ input {
     border-width: 1px;*/
 }
 
-.pageTypes a {
-    text-decoration: none;
+.aRef {
     font-size: 20;
     margin: 20;
     margin-bottom: -1px;
+    text-decoration: none;
+    color: black;
 }
 
 .pageTypesaSelected {
@@ -92,4 +113,9 @@ input {
     border-radius: 3px 3px 0px 0px;
     border-width: 1px;
     text-decoration: none;
+}
+
+#liveTable table {
+    width: 60%;
+    margin: auto;
 }

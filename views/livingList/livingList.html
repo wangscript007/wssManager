@@ -5,19 +5,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="js/livingList.js"></script>
+    <script src="js/jquery-3.2.1.js"></script>
 </head>
-<div id="usrInfo">
-    <p1>欢迎 {{.UsrName}}:
-        <a href="/logout">退出</a>
-    </p1>
+<div class="usrInfo">
+    <div class="usrInfo1">
+        <h1 class="usrInfoH2">web socket stream server console</h1>
+    </div>
+    <div class="usrInfo2" style="position: absolute; right: 0px; ">
+        <h1 class="usrInfoH2"> {{.UsrName}}:<a href="/logout">退出</a></h1>
+    </div>
 </div>
 <div id="manage">
     <p class="pageTypesP">
-        <!--<hr/>-->
         <span class="pageTypesSpanSelected"><a class="pageTypesaSelected" href="/livingList">living list</a></span>
-        <span class="pageTypesSpan"><a href="/blackList">black list</a></span>
-        <span class="pageTypesSpan"><a href="/whiteList">white list</a></span>
+        <span class="pageTypesSpan"><a class="aRef" href="/blackList">black list</a></span>
+        <span class="pageTypesSpan"><a class="aRef" href="/whiteList">white list</a></span>
     </p>
+</div>
+<div id="liveTable">
+    <table border="2">
+        <tr>
+            <td>stream name</td>
+            <td>connections </td>
+            <td>delete</td>
+        </tr>
+    </table>
 </div>
 
 <body>

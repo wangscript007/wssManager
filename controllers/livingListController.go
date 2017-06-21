@@ -21,5 +21,11 @@ func (this *LivingListController) Get() {
 		this.TplName = "livingList/livingList.html"
 		usr := session.(backendCtrl.Usr)
 		this.Data["UsrName"] = usr.Usrname
+		this.Data["LiveInfos"] = this.getLivingList(usr)
 	}
+}
+
+func (this *LivingListController) getLivingList(usr backendCtrl.Usr) (liveInfos string) {
+	liveInfos = "<tr><td>live/test</td><td>2</td><td>delete</td></tr>"
+	return
 }
